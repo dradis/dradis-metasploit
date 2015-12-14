@@ -1,0 +1,10 @@
+# Bundler config
+Gemfile.lock
+/.bundle/
+/vendor/bundle/
+
+# Combustion engine
+/spec/internal/log/*.log
+
+# Gem artifacts
+/pkg/
