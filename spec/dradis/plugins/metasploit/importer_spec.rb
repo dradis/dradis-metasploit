@@ -16,7 +16,7 @@ describe Dradis::Plugins::Metasploit::Importer do
 
   before do
     # Stub template service
-    templates_dir = File.expand_path('../../../templates', __FILE__)
+    templates_dir = File.expand_path('../../../../../templates', __FILE__)
     allow_any_instance_of(Dradis::Plugins::TemplateService).to \
       receive(:default_templates_dir).and_return(templates_dir)
 
@@ -31,7 +31,7 @@ describe Dradis::Plugins::Metasploit::Importer do
     end
   end
 
-  let(:example_xml) { 'spec/fixtures/files/simple.xml' }
+  let(:example_xml) { 'spec/fixtures/files/msf5.xml' }
 
   def run_import!
     importer.import(file: example_xml)
@@ -42,17 +42,33 @@ describe Dradis::Plugins::Metasploit::Importer do
       expect_to_create_note_with(text: 'Invalid XML')
       expect(importer.import(file: 'spec/fixtures/files/qualys.xml')).to eq(false)
     end
+
     it "detects a not-supported Metasploit XML version" do
       expect_to_create_note_with(text: 'Invalid Metasploit version')
       expect(importer.import(file: 'spec/fixtures/files/msf4.xml')).to eq(false)
+    end
+
+    context "supported XML version" do
+      it "creates one Node for each host" do
+        expect_to_create_node_with(label: '10.127.53.65', type: :host)
+        run_import!
+      end
+
+      it "creates one Note for each host note" do
+        expect_to_create_note_with(text: 'mac_oui')
+        expect_to_create_note_with(text: 'fingerprint.match')
+        expect_to_create_note_with(text: 'smb.fingerprint')
+
+        run_import!
+      end
     end
   end
   
 
 
-  def expect_to_create_node_with(label:)
+  def expect_to_create_node_with(label:, type: :default)
     expect(content_service).to receive(:create_node).with(
-      hash_including label: label
+      hash_including label: label, type: type
     ).once
   end
 
@@ -77,7 +93,6 @@ describe Dradis::Plugins::Metasploit::Importer do
       expect(args[:node].label).to eq node_label
     end.once
   end
-
 
 end
 

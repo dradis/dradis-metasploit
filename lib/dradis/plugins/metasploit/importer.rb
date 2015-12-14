@@ -34,7 +34,7 @@ module Dradis::Plugins::Metasploit
     private
     def parse_file
       # hosts
-      @doc.xpath('hosts/host') do |xml_host|
+      @doc.root.xpath('hosts/host').each do |xml_host|
         parse_host(xml_host)
       end
 
@@ -45,6 +45,36 @@ module Dradis::Plugins::Metasploit
       # web forms
       # web vulns
       # module details
+    end
+
+    # Parses each of the MetasploitV5/hosts/host entries in the document.
+    def parse_host(xml_host)
+      address = xml_host.at_xpath('address').text
+      logger.info { "\tParsing: #{address}" }
+
+      # Create the Node
+      host_node = content_service.create_node(label: address, type: :host)
+
+      # Node properties
+      if host_node.respond_to?(:properties)
+        # Set basic host properties
+        host_node.set_property(:ip, address)
+
+        if mac = xml_host.at_xpath('mac')
+          host_node.set_property(:mac, mac.text)
+        end
+
+        if os_name = xml_host.at_xpath('os-name')
+          host_node.set_property(:os_name, os_name.text)
+        end
+
+        host_node.save
+      end
+
+      xml_host.xpath('notes/note').each do |xml_note|
+        host_note = template_service.process_template(template: 'host_note', data: xml_note)
+        content_service.create_note(text: host_note, node: host_node)
+      end
     end
   end
 end

@@ -11,9 +11,13 @@ module Dradis
 
           # fields in the template are of the form <foo>.<field>, where <foo>
           # is common across all fields for a given template (and meaningless).
-          type, name, attribute = field.split('.')
+          _, name = field.split('.')
 
-          @data.key?(name) ? @data[name] : 'n/a'
+          if child = data.at_xpath(name)
+            child.text
+          else
+            'n/a'
+          end
         end
       end
     end
