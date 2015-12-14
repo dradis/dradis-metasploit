@@ -8,7 +8,6 @@ end
 require 'dradis/plugins/metasploit/engine'
 require 'dradis/plugins/metasploit/field_processor'
 require 'dradis/plugins/metasploit/importer'
-require 'dradis/plugins/metasploit/importers/version5'
 require 'dradis/plugins/metasploit/version'
 
 # This is required while we transition the Upload Manager to use

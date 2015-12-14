@@ -15,7 +15,7 @@ module Dradis::Plugins::Metasploit
       version_importer = nil
       case @doc.root.name
       when 'MetasploitV5'
-        version_importer = Dradis::Plugins::Metasploit::Importers::Version5.new(@doc)
+        # version_importer = Dradis::Plugins::Metasploit::Importers::Version5.new(@doc)
       when /MetasploitV/
         error = "Invalid Metasploit version. Sorry, the XML file corresponds to a version of Metasploit we don't have a parser for. Please let us know: http://discuss.dradisframework.org"
         logger.fatal { error }
@@ -27,6 +27,24 @@ module Dradis::Plugins::Metasploit
         content_service.create_note text: error
         return false
       end
+
+      parse_file
+    end
+
+    private
+    def parse_file
+      # hosts
+      @doc.xpath('hosts/host') do |xml_host|
+        parse_host(xml_host)
+      end
+
+      # events
+      # services
+      # web sites
+      # web pages
+      # web forms
+      # web vulns
+      # module details
     end
   end
 end
