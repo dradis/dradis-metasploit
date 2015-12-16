@@ -68,6 +68,24 @@ module Dradis::Plugins::Metasploit
           host_node.set_property(:os_name, os_name.text)
         end
 
+        # Service-related properties
+        xml_host.xpath('services/service').each do |xml_service|
+          port     = xml_service.at_xpath('port').text
+          protocol = xml_service.at_xpath('proto').text
+          state    = xml_service.at_xpath('state').text
+
+          logger.info { "\t\tFound: #{protocol}/#{port} - #{state}" }
+
+          host_node.set_property(:services, {
+            protocol: protocol,
+            port:     port,
+            state:    state,
+            info:     xml_service.at_xpath('info').text,
+            name:     xml_service.at_xpath('name').text
+          })
+        end
+
+        # Commit changes
         host_node.save
       end
 
