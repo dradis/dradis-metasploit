@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetasploitV5>
+<generated time="2015-01-07 21:04:30 UTC" user="root" project="default" product="framework"/>
+<hosts>
+  <host>
+    <id>91</id>
+    <created-at>2014-12-17 17:52:03 UTC</created-at>
+    <address>10.127.53.65</address>
+    <mac>00:1a:4b:44:bc:66</mac>
+    <comm></comm>
+    <name>MAPWS</name>
+    <state>alive</state>
+    <os-name>Windows XP</os-name>
+    <os-flavor/>
+    <os-sp/>
+    <os-lang/>
+    <arch/>
+    <workspace-id>2</workspace-id>
+    <updated-at>2014-12-17 19:58:31 UTC</updated-at>
+    <purpose>client</purpose>
+    <info/>
+    <comments/>
+    <scope/>
+    <virtual-host/>
+    <note-count>3</note-count>
+    <vuln-count>0</vuln-count>
+    <service-count>2</service-count>
+    <host-detail-count>0</host-detail-count>
+    <exploit-attempt-count>9</exploit-attempt-count>
+    <cred-count>0</cred-count>
+    <nexpose-data-asset-id/>
+    <history-count>0</history-count>
+    <detected-arch/>
+    <host_details>
+    </host_details>
+    <exploit_attempts>
+        <exploit_attempt>
+            <id>594</id>
+            <host-id>91</host-id>
+            <service-id/>
+            <vuln-id/>
+            <attempted-at>2014-12-17 20:08:53 UTC</attempted-at>
+            <exploited/>
+            <fail-reason>no-access</fail-reason>
+            <username>root</username>
+            <module>exploit/windows/smb/ms10_061_spoolss</module>
+            <session-id/>
+            <loot-id/>
+            <port>445</port>
+            <proto>tcp</proto>
+            <fail-detail>The server responded with error: STATUS_ACCESS_DENIED (Command=37 WordCount=0)</fail-detail>
+        </exploit_attempt>
+        <exploit_attempt>
+            <id>595</id>
+            <host-id>91</host-id>
+            <service-id/>
+            <vuln-id/>
+            <attempted-at>2014-12-17 20:09:15 UTC</attempted-at>
+            <exploited/>
+            <fail-reason>no-access</fail-reason>
+            <username>root</username>
+            <module>exploit/windows/oracle/extjob</module>
+            <session-id/>
+            <loot-id/>
+            <port>445</port>
+            <proto>tcp</proto>
+            <fail-detail>The server responded with error: STATUS_ACCESS_DENIED (Command=162 WordCount=0)</fail-detail>
+        </exploit_attempt>
+        <exploit_attempt>
+            <id>596</id>
+            <host-id>91</host-id>
+            <service-id/>
+            <vuln-id/>
+            <attempted-at>2014-12-17 20:09:33 UTC</attempted-at>
+            <exploited/>
+            <fail-reason>unknown</fail-reason>
+            <username>root</username>
+            <module>exploit/multi/samba/usermap_script</module>
+            <session-id/>
+            <loot-id/>
+            <port>139</port>
+            <proto>tcp</proto>
+            <fail-detail>Stream #&lt;TCPSocket:0x11c51cbc&gt; is closed.</fail-detail>
+        </exploit_attempt>
+        <exploit_attempt>
+            <id>598</id>
+            <host-id>91</host-id>
+            <service-id/>
+            <vuln-id/>
+            <attempted-at>2014-12-17 20:14:44 UTC</attempted-at>
+            <exploited/>
+            <fail-reason>unknown</fail-reason>
+            <username>root</username>
+            <module>exploit/windows/smb/ms08_067_netapi</module>
+            <session-id/>
+            <loot-id/>
+            <port>445</port>
+            <proto>tcp</proto>
+            <fail-detail>The SMB server did not reply to our request</fail-detail>
+        </exploit_attempt>
+        <exploit_attempt>
+            <id>600</id>
+            <host-id>91</host-id>
+            <service-id/>
+            <vuln-id/>
+            <attempted-at>2014-12-17 20:34:04 UTC</attempted-at>
+            <exploited/>
+            <fail-reason>no-access</fail-reason>
+            <username>root</username>
+            <module>exploit/windows/smb/ms10_061_spoolss</module>
+            <session-id/>
+            <loot-id/>
+            <port>445</port>
+            <proto>tcp</proto>
+            <fail-detail>The server responded with error: STATUS_ACCESS_DENIED (Command=37 WordCount=0)</fail-detail>
+        </exploit_attempt>
+        <exploit_attempt>
+            <id>606</id>
+            <host-id>91</host-id>
+            <service-id/>
+            <vuln-id/>
+            <attempted-at>2014-12-17 21:06:37 UTC</attempted-at>
+            <exploited/>
+            <fail-reason>payload-failed</fail-reason>
+            <username>root</username>
+            <module>exploit/windows/smb/psexec</module>
+            <session-id/>
+            <loot-id/>
+            <port>445</port>
+            <proto>tcp</proto>
+            <fail-detail>No session created</fail-detail>
+        </exploit_attempt>
+        <exploit_attempt>
+            <id>610</id>
+            <host-id>91</host-id>
+            <service-id/>
+            <vuln-id/>
+            <attempted-at>2014-12-18 01:41:37 UTC</attempted-at>
+            <exploited/>
+            <fail-reason>unknown</fail-reason>
+            <username>root</username>
+            <module>exploit/windows/smb/ms08_067_netapi</module>
+            <session-id/>
+            <loot-id/>
+            <port>445</port>
+            <proto>tcp</proto>
+            <fail-detail>Stream #&lt;TCPSocket:0x1297c270&gt; is closed.</fail-detail>
+        </exploit_attempt>
+        <exploit_attempt>
+            <id>611</id>
+            <host-id>91</host-id>
+            <service-id/>
+            <vuln-id/>
+            <attempted-at>2014-12-18 01:44:53 UTC</attempted-at>
+            <exploited/>
+            <fail-reason>unknown</fail-reason>
+            <username>root</username>
+            <module>exploit/windows/smb/ms08_067_netapi</module>
+            <session-id/>
+            <loot-id/>
+            <port>445</port>
+            <proto>tcp</proto>
+            <fail-detail>Stream #&lt;TCPSocket:0x1292f2b8&gt; is closed.</fail-detail>
+        </exploit_attempt>
+        <exploit_attempt>
+            <id>612</id>
+            <host-id>91</host-id>
+            <service-id/>
+            <vuln-id/>
+            <attempted-at>2014-12-18 01:46:04 UTC</attempted-at>
+            <exploited/>
+            <fail-reason>unknown</fail-reason>
+            <username>root</username>
+            <module>exploit/windows/smb/ms08_067_netapi</module>
+            <session-id/>
+            <loot-id/>
+            <port>445</port>
+            <proto>tcp</proto>
+            <fail-detail>Stream #&lt;TCPSocket:0x127a9024&gt; is closed.</fail-detail>
+        </exploit_attempt>
+    </exploit_attempts>
+    <services>
+      <service>
+      <id>338</id>
+      <host-id>91</host-id>
+      <created-at>2014-12-17 19:38:02 UTC</created-at>
+      <port>139</port>
+      <proto>tcp</proto>
+      <state>open</state>
+      <name/>
+      <updated-at>2014-12-17 19:38:02 UTC</updated-at>
+      <info></info>
+      </service>
+      <service>
+      <id>352</id>
+      <host-id>91</host-id>
+      <created-at>2014-12-17 19:38:23 UTC</created-at>
+      <port>445</port>
+      <proto>tcp</proto>
+      <state>open</state>
+      <name>smb</name>
+      <updated-at>2014-12-17 19:58:30 UTC</updated-at>
+      <info>Windows XP SP3 (language:English) (name:MAPWS) (domain:IECA)</info>
+      </service>
+    </services>
+    <notes>
+      <note>
+      <id>123</id>
+      <created-at>2014-12-17 17:52:03 UTC</created-at>
+      <ntype>mac_oui</ntype>
+      <workspace-id>2</workspace-id>
+      <service-id/>
+      <host-id>91</host-id>
+      <updated-at>2014-12-19 20:21:30 UTC</updated-at>
+      <critical/>
+      <seen/>
+      <data>Hewlett-Packard Company</data>
+      </note>
+      <note>
+      <id>312</id>
+      <created-at>2014-12-17 19:58:30 UTC</created-at>
+      <ntype>fingerprint.match</ntype>
+      <workspace-id>2</workspace-id>
+      <service-id>352</service-id>
+      <host-id>91</host-id>
+      <updated-at>2014-12-17 23:49:48 UTC</updated-at>
+      <critical/>
+      <seen/>
+      <data>BAh7CSIPb3MudmVyc2lvbiITU2VydmljZSBQYWNrIDMiEG9zLmxhbmd1YWdlIgxFbmdsaXNoIg5ob3N0Lm5hbWUiCk1BUFdTIhBob3N0LmRvbWFpbiIJSVVBQQ==</data>
+      </note>
+      <note>
+      <id>313</id>
+      <created-at>2014-12-17 19:58:31 UTC</created-at>
+      <ntype>smb.fingerprint</ntype>
+      <workspace-id>2</workspace-id>
+      <service-id>352</service-id>
+      <host-id>91</host-id>
+      <updated-at>2014-12-17 23:49:48 UTC</updated-at>
+      <critical/>
+      <seen/>
+      <data>BAh7CzoObmF0aXZlX29zIhBXaW5kb3dzIDUuMToObmF0aXZlX2xtIh1XaW5kb3dzIDIwMDAgTEFOIE1hbmFnZXI6Cm9zX3NwIhNTZXJ2aWNlIFBhY2sgMzoMb3NfbGFuZyIMRW5nbGlzaDoMU01CTmFtZSIKTUFQV1M6DlNNQkRvbWFpbiIJSVVBQQ==</data>
+      </note>
+    </notes>
+    <vulns>
+    </vulns>
+  </host>
+</hosts>
+</MetasploitV5>
