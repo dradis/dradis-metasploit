@@ -10,33 +10,35 @@ class MetasploitTasks < Thor
   def upload(file_path)
     require 'config/environment'
 
+    logger = Logger.new(STDOUT)
+    logger.level = Logger::DEBUG
+
     unless File.exist?(file_path)
       $stderr.puts "** the file [#{file_path}] does not exist"
       exit(-1)
     end
 
+    content_service = nil
+    template_service = nil
+
+    template_service = Dradis::Plugins::TemplateService.new(plugin: Dradis::Plugins::Metasploit)
+    if defined?(Dradis::Pro)
     # Set project scope from the PROJECT_ID env variable:
-    detect_and_set_project_scope if defined?(::Core::Pro)
+      detect_and_set_project_scope
+      content_service = Dradis::Pro::Plugins::ContentService.new(plugin: Dradis::Plugins::Metasploit)
+    else
+      content_service = Dradis::Plugins::ContentService.new(plugin: Dradis::Plugins::Metasploit)
+    end
 
-    plugin = Dradis::Plugins::Metasploit
-
-    Dradis::Plugins::Metasploit::Importer.new(
-      logger:           logger,
-      content_service:  service_namespace::ContentService.new(plugin: plugin),
-      template_service: service_namespace::TemplateService.new(plugin: plugin)
-    ).import(file: file_path)
+    importer = Dradis::Plugins::Metasploit::Importer.new(
+                logger: logger,
+       content_service: content_service, 
+      template_service: template_service
+    )
+    
+    importer.import(file: file_path)
 
     logger.close
-  end
-
-  private
-
-  def logger
-    @logger ||= Logger.new(STDOUT).tap { |l| l.level = Logger::DEBUG }
-  end
-
-  def service_namespace
-    defined?(Dradis::Pro) ? Dradis::Pro::Plugins : Dradis::Plugins
   end
 
 end
