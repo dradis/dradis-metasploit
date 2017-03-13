@@ -1,5 +1,5 @@
 class MetasploitTasks < Thor
-  include Core::Pro::ProjectScopedTask if defined?(::Core::Pro)
+  include Rails.application.config.dradis.thor_helper_module
 
 
   namespace "dradis:plugins:metasploit"
@@ -18,24 +18,9 @@ class MetasploitTasks < Thor
       exit(-1)
     end
 
-    content_service = nil
-    template_service = nil
+    detect_and_set_project_scope
 
-    template_service = Dradis::Plugins::TemplateService.new(plugin: Dradis::Plugins::Metasploit)
-    if defined?(Dradis::Pro)
-    # Set project scope from the PROJECT_ID env variable:
-      detect_and_set_project_scope
-      content_service = Dradis::Pro::Plugins::ContentService.new(plugin: Dradis::Plugins::Metasploit)
-    else
-      content_service = Dradis::Plugins::ContentService.new(plugin: Dradis::Plugins::Metasploit)
-    end
-
-    importer = Dradis::Plugins::Metasploit::Importer.new(
-                logger: logger,
-       content_service: content_service, 
-      template_service: template_service
-    )
-    
+    importer = Dradis::Plugins::Metasploit::Importer.new(logger: logger)
     importer.import(file: file_path)
 
     logger.close
