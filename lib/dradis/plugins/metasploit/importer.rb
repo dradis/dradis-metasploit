@@ -70,7 +70,7 @@ module Dradis::Plugins::Metasploit
 
         # Service-related properties
         xml_host.xpath('services/service').each do |xml_service|
-          port     = xml_service.at_xpath('port').text
+          port     = xml_service.at_xpath('port').text.to_i
           protocol = xml_service.at_xpath('proto').text
           state    = xml_service.at_xpath('state').text
 
