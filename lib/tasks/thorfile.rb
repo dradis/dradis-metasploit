@@ -16,7 +16,7 @@ class MetasploitTasks < Thor
 
     detect_and_set_project_scope
 
-    importer = Dradis::Plugins::Metasploit::Importer.new(logger: logger)
+    importer = Dradis::Plugins::Metasploit::Importer.new(task_options)
     importer.import(file: file_path)
   end
 
