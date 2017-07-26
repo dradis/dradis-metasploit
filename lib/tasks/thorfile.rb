@@ -1,7 +1,6 @@
 class MetasploitTasks < Thor
   include Rails.application.config.dradis.thor_helper_module
 
-
   namespace "dradis:plugins:metasploit"
 
   desc      "upload FILE", "upload Metasploit results in XML format"
@@ -10,9 +9,6 @@ class MetasploitTasks < Thor
   def upload(file_path)
     require 'config/environment'
 
-    logger = Logger.new(STDOUT)
-    logger.level = Logger::DEBUG
-
     unless File.exist?(file_path)
       $stderr.puts "** the file [#{file_path}] does not exist"
       exit(-1)
@@ -20,10 +16,8 @@ class MetasploitTasks < Thor
 
     detect_and_set_project_scope
 
-    importer = Dradis::Plugins::Metasploit::Importer.new(logger: logger)
+    importer = Dradis::Plugins::Metasploit::Importer.new(task_options)
     importer.import(file: file_path)
-
-    logger.close
   end
 
 end
