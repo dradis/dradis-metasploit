@@ -76,13 +76,18 @@ module Dradis::Plugins::Metasploit
 
           logger.info { "\t\tFound: #{protocol}/#{port} - #{state}" }
 
-          host_node.set_property(:services, {
+          host_node.set_property(
+            :services,
             protocol: protocol,
             port:     port,
             state:    state,
-            info:     xml_service.at_xpath('info').text,
-            name:     xml_service.at_xpath('name').text
-          })
+            name:     xml_service.at_xpath('name').text,
+            extra: [
+              source: 'Metasploit',
+              id: 'info',
+              output: xml_service.at_xpath('info').text
+            ]
+          )
         end
 
         # Commit changes
