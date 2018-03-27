@@ -1,6 +1,10 @@
-## Dradis Framework 3.9 (XXX, 2017) ##
+## Dradis Framework 3.10 (XXX, 2018) ##
 
 *   Split services data into services and services_extra tables
+
+## Dradis Framework 3.9 (January, 2018) ##
+
+*   No changes.
 
 ## Dradis Framework 3.8 (September, 2017) ##
 
