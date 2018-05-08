@@ -80,7 +80,7 @@ module Dradis::Plugins::Metasploit
             port:     port,
             state:    state,
             name:     xml_service.at_xpath('name').text,
-            source:  'Metasploit',
+            source:   :metasploit,
             info:     xml_service.at_xpath('info').text,
           )
         end
