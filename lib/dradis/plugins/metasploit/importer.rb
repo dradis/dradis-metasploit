@@ -12,7 +12,6 @@ module Dradis::Plugins::Metasploit
       @doc = Nokogiri::XML(file_content)
       logger.info { 'Done.' }
 
-      version_importer = nil
       case @doc.root.name
       when 'MetasploitV5'
         # version_importer = Dradis::Plugins::Metasploit::Importers::Version5.new(@doc)
@@ -76,13 +75,14 @@ module Dradis::Plugins::Metasploit
 
           logger.info { "\t\tFound: #{protocol}/#{port} - #{state}" }
 
-          host_node.set_property(:services, {
+          host_node.set_service(
             protocol: protocol,
             port:     port,
             state:    state,
+            name:     xml_service.at_xpath('name').text,
+            source:   :metasploit,
             info:     xml_service.at_xpath('info').text,
-            name:     xml_service.at_xpath('name').text
-          })
+          )
         end
 
         # Commit changes
