@@ -1,4 +1,4 @@
-[v#.#.#] ([month] [YYYY])
+v4.4.0 (June 2022)
   - Provide plugin template mappings (no mappings)
 
 v4.3.0 (April 2022)
