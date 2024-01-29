@@ -1,5 +1,8 @@
-v4.11.0 (XXXX 2023)
+v4.12.0 (XXXX 2024)
   - Use the `os` Node property to match other plugins
+
+v4.11.0 (January 2024)
+  - No changes
 
 v4.10.0 (September 2023)
   - Update gemspec links
