@@ -4,7 +4,7 @@
 
 The Metasploit add-on enables users to upload Metasploit XML files to create a structure of nodes/notes that contain the same information about the hosts/ports/services as the original file.
 
-The add-on requires [Dradis CE](https://dradisframework.org/) > 3.0, or [Dradis Pro](https://dradisframework.com/pro/).
+The add-on requires [Dradis CE](https://dradis.com/ce/) > 3.0, or [Dradis Pro](https://dradis.com/).
 
 
 
