@@ -7,5 +7,13 @@ module Dradis::Plugins::Metasploit
         'Data' => '{{ metasploit[host_note.data] }}'
       }
     }.freeze
+
+    SOURCE_FIELDS = {
+      host_note: [
+        'host_note.id',
+        'host_note.ntype',
+        'host_note.data'
+      ]
+    }.freeze
   end
 end
