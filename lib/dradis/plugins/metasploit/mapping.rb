@@ -1,10 +1,19 @@
 module Dradis::Plugins::Metasploit
   module Mapping
-    def self.component_name
-      'metasploit'
-    end
+    DEFAULT_MAPPING = {
+      host_note: {
+        'Title' => 'Note {{ metasploit[host_note.id] }}',
+        'Type' => '{{ metasploit[host_note.ntype] }}',
+        'Data' => '{{ metasploit[host_note.data] }}'
+      }
+    }.freeze
 
-    def self.default_mapping
-    end
+    SOURCE_FIELDS = {
+      host_note: [
+        'host_note.id',
+        'host_note.ntype',
+        'host_note.data'
+      ]
+    }.freeze
   end
 end
