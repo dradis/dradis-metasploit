@@ -68,7 +68,7 @@ module Dradis::Plugins::Metasploit
         end
 
         if os_name = xml_host.at_xpath('os-name')
-          host_node.set_property(:os_name, os_name.text)
+          host_node.set_property(:os, os_name.text)
         end
 
         # Service-related properties
