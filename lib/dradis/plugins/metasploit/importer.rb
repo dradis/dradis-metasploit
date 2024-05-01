@@ -94,7 +94,7 @@ module Dradis::Plugins::Metasploit
       end
 
       xml_host.xpath('notes/note').each do |xml_note|
-        host_note = template_service.process_template(template: 'host_note', data: xml_note)
+        host_note = mapping_service.apply_mapping(source: 'host_note', data: xml_note)
         content_service.create_note(text: host_note, node: host_node)
       end
     end
